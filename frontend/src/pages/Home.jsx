@@ -32,6 +32,9 @@ const Home = () => {
             <Link to="/education" className="action-link education-link">
               📚 အသိပညာ
             </Link>
+            <Link to="/chat-history" className="action-link history-link">
+              💬 ဆွေးနွေးမှု
+            </Link>
             {user?.role === 'admin' && (
               <Link to="/admin" className="action-link admin-link">
                 ⚙️ Admin

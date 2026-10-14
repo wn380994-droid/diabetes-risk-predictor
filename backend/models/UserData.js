@@ -12,6 +12,11 @@ const userDataSchema = new mongoose.Schema({
   hba1c: { type: Number },
   skinThickness: { type: Number },
   diabetesPedigreeFunction: { type: Number },
+  familyHistory: {
+  type: String,
+  enum: ['none', 'one_relative', 'multiple_relatives'],
+  default: 'none'
+  },
   pregnancies: { type: Number, default: 0 },
   dietHabit: { 
     type: String, 

@@ -15,7 +15,8 @@ const PredictionForm = ({ onResult }) => {
     dietHabit: 'balanced',
     stressLevel: 5,
     exerciseFrequency: 0,
-    symptoms: []
+    symptoms: [],
+    familyHistory: 'none'
   });
   
   const [loading, setLoading] = useState(false);
@@ -109,6 +110,15 @@ const PredictionForm = ({ onResult }) => {
       <div className="form-group">
         <label>HbA1c (%)</label>
         <input type="number" step="0.1" name="hba1c" value={formData.hba1c} onChange={handleChange} />
+      </div>
+
+      <div className="form-group">
+        <label>မိသားစုတွင် ဆီးချိုရောဂါ ရှိပါသလား?</label>
+        <select name="familyHistory" value={formData.familyHistory} onChange={handleChange}>
+          <option value="none">မရှိပါ</option>
+          <option value="one_relative">မိဘ/မောင်နှမ တစ်ဦး ရှိပါသည်</option>
+          <option value="multiple_relatives">မိဘနှစ်ဦး (သို့) မောင်နှမ နှစ်ဦးအထက် ရှိပါသည်</option>
+        </select>
       </div>
       
       <div className="form-group">

@@ -8,6 +8,7 @@ import Education from './pages/Education';
 import ChatbotPage from './pages/ChatbotPage';
 import Admin from './pages/Admin';
 import ProtectedRoute from './components/ProtectedRoute';
+import ChatHistory from './pages/ChatHistory';
 import './App.css';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/education" element={<ProtectedRoute><Education /></ProtectedRoute>} />
           <Route path="/chatbot" element={<ProtectedRoute><ChatbotPage /></ProtectedRoute>} />
           <Route path="/admin" element={<ProtectedRoute adminOnly><Admin /></ProtectedRoute>} />
+          <Route path="/chat-history" element={<ProtectedRoute><ChatHistory /></ProtectedRoute>} />
         </Routes>
       </div>
     </Router>

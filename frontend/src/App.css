@@ -1792,3 +1792,18 @@ button:disabled {
     font-size: 1.7rem;
   }
 }
+
+.chat-history-card {
+  cursor: default;
+}
+
+.chat-history-card:hover {
+  transform: none;
+}
+
+.chat-messages-user {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 15px;
+}

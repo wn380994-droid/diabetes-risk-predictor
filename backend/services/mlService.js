@@ -10,6 +10,15 @@ console.log('🔍 Length =', ML_API_URL?.length);
 const getPrediction = async (userData) => {
   try {
     console.log('📤 ML API ကို ခေါ်နေသည်...');
+
+    // ⭐ Family History → DPF Mapping
+    const dpfMap = {
+      'none': 0.2,
+      'one_relative': 0.5,
+      'multiple_relatives': 0.9
+    };
+    const dpf = dpfMap[userData.familyHistory] || userData.diabetesPedigreeFunction || 0.5;
+
     const response = await axios.post(`${ML_API_URL}/predict`, {
       pregnancies: userData.pregnancies || 0,
       glucose: userData.glucose,
@@ -17,7 +26,7 @@ const getPrediction = async (userData) => {
       skinThickness: userData.skinThickness || 20,
       insulin: userData.insulin || 80,
       bmi: userData.bmi || 25,
-      diabetesPedigreeFunction: userData.diabetesPedigreeFunction || 0.5,
+      diabetesPedigreeFunction: dpf,   // ← အသစ်
       age: userData.age
     });
     console.log('✅ ML API ရလဒ်:', response.data);
